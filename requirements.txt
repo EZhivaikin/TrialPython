@@ -20,5 +20,5 @@ pytest-cov==2.4.0
 # tox==2.7.0
 
 #EZhivaikin
-pydantic
+Flask-Pydantic
 factory_boy
