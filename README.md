@@ -50,3 +50,12 @@ Point your web browser to http://localhost:5000/products
 ## Trouble shooting
 
 If you make changes in the Models and run into DB schema issues, delete the sqlite DB file `app.sqlite`.
+
+## Added modules by EZhivaikin
+
+- Flask-Pydantic – body data validation (also can be used for response validation, but schema was presented already)
+- factory_boy – fixtures replacement for tests. It will be easier to create models insances in the future
+
+## Possible improvements
+There's an idea to separate validation and service tests
+
