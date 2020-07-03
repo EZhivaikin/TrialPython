@@ -46,6 +46,7 @@ def session(db, request):
 	session = db.create_scoped_session(options=options)
 
 	db.session = session
+
 	def teardown():
 		transaction.rollback()
 		connection.close()
@@ -55,9 +56,22 @@ def session(db, request):
 	return session
 
 
+@pytest.fixture(scope='function')
+def product_request():
+	request_json = {
+		'name': 'test',
+		'rating': 7,
+		'featured': True,
+		'expiration_date': '2021-04-23T18:25:43Z',
+		'items_in_stock': 10,
+		'receipt_date': '2012-04-23T18:25:43Z',
+		'brand_id': 1,
+		'categories': [1, 2, 3]
+	}
+	return request_json
+
 
 @pytest.fixture
 def client(app):
 	with app.test_client() as client:
 		yield client
-
